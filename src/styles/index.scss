@@ -8,7 +8,9 @@
     --font-size: 16px;
     --animation-speed: 1;
 }
-
+@function getAnimationDuration($duration: number) {
+    @return calc($duration * var(--animation-speed));
+}
 
 * {
     margin: 0;
@@ -34,7 +36,7 @@ a {
     justify-content: space-between;
     align-items: center;
     .logo {
-        font-size: 1.2em;
+        font-size: 1.3em;
         font-weight: bold;
         color: var(--primary-color);
         text-shadow: 0 1px 3px var(--shadow-color);
@@ -59,7 +61,7 @@ a {
                 bottom: -3px;
                 left: 0;
                 transform: scaleX(0);
-                transition: all 0.3s;
+                transition: getAnimationDuration(.3s) ease-in-out;
             }
             &:hover {
                 &::before{
@@ -71,8 +73,63 @@ a {
             }
         }
     }
+    .sidebar__btn {
+        height: 28px;
+        width: 30px;
+        position: relative;
+        display: none;
+        .bar {
+            transition: getAnimationDuration(.5s);
+            border-radius: 5px;
+            height: 6px;
+            width: 100%;
+            background-color: var(--text-color);
+            position: absolute;
+            &:nth-child(1) {
+                top: 0;
+                transform-origin: right;
+            }
+            &:nth-child(2) {
+                top: 50%;
+                transform-origin: right;
+                transform: scaleX(.8) translateY(-50%);
+            }
+            &:nth-child(3) {
+                top: 100%;
+                transform-origin:right;
+                transform: scaleX(1.1) translateY(-100%);
+            }
+    
+        }
+        &.active {
+            .bar {
+                transform-origin: center;
+                top: 50%;
+                &:nth-child(1) {
+                    transform: translate(0,-50%) scale(1) rotate(45deg);
+                }
+                &:nth-child(2) {
+                    transform: scaleX(0) translateY(-50%);
+                }
+                &:nth-child(3) {
+                    transform: translate(0,-50%) scale(1) rotate(-45deg);
+                }
+            }
+        }
+    }
 }
 
 .container {
     padding-inline: 15vw;
+}
+ 
+@media screen and (max-width: 768px) {
+    .navbar {
+        .nav__links {
+            display: none;
+        }
+        .sidebar__btn {
+            display: block;
+        }
+    }
 }
