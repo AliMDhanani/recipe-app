@@ -2,7 +2,7 @@
     --background-color: #fff;
     --background-light: #fff;
     --shadow-color: rgba(0,0,0,0.2);
-    --primary-color: rgb(255, 0, 86);
+    --primary-color: rgb(26, 173, 85);
     --text-color: #0A0A0A;
     --text-light: #575757;
     --font-size: 16px;
@@ -30,142 +30,16 @@ a {
     font-size: .9em;
 }
 
-// NAVIGATION
-
-.navbar {
-    height: 55px;
-    box-shadow: 0 3px 6px var(--shadow-color);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .logo {
-        font-size: 1.3em;
-        font-weight: bold;
-        color: var(--primary-color);
-        text-shadow: 0 1px 3px var(--shadow-color);
-        span{
-            color: var(--text-color);
-        }
-    }
-    .nav__links {
-        a{
-            margin-left: 1em;
-            color: var(--text-light);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            position: relative;
-            &::before{
-                content: '';
-                display: inline-block;
-                height: 5px;
-                width: 100%;
-                background-color: var(--primary-color);
-                position: absolute;
-                bottom: -3px;
-                left: 0;
-                transform: scaleX(0);
-                transition: getAnimationDuration(.3s) ease-in-out;
-            }
-            &:hover {
-                &::before{
-                    transform: scaleX(1);
-                }
-            }
-            &.active {
-                color: var(--primary-color);
-            }
-        }
-    }
-    .sidebar__btn {
-        height: 28px;
-        width: 30px;
-        position: relative;
-        display: none;
-        .bar {
-            transition: getAnimationDuration(.5s);
-            border-radius: 5px;
-            height: 6px;
-            width: 100%;
-            background-color: var(--text-color);
-            position: absolute;
-            &:nth-child(1) {
-                top: 0;
-                transform-origin: right;
-            }
-            &:nth-child(2) {
-                top: 50%;
-                transform-origin: right;
-                transform: scaleX(.8) translateY(-50%);
-            }
-            &:nth-child(3) {
-                top: 100%;
-                transform-origin:right;
-                transform: scaleX(1.1) translateY(-100%);
-            }
-    
-        }
-        &.active {
-            .bar {
-                transform-origin: center;
-                top: 50%;
-                &:nth-child(1) {
-                    transform: translate(0,-50%) scale(1) rotate(45deg);
-                }
-                &:nth-child(2) {
-                    transform: scaleX(0) translateY(-50%);
-                }
-                &:nth-child(3) {
-                    transform: translate(0,-50%) scale(1) rotate(-45deg);
-                }
-            }
-        }
-    }
+img {
+    object-fit: cover;
 }
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 250px;
-    background-color: var(--background-color);
-    box-shadow: 0 0 0 1000px rgba(0,0,0,0.2),
-                3px 0 5px var(--shadow-color);
-    animation: getAnimationDuration(.3s) slideInLeft;
-    .sidebar__links {
-        display: block;
-        padding: .8em 1em;
-        border-left: .4em solid transparent;
-        margin-bottom: 1em;
-        color: var(--text-color);
-        font-size: 1.1em;
-        transform: translateX(-100%);
-        animation: getAnimationDuration(.3s) slideInLeft forwards;
-        @for $i from 1 through 3{
-            &:nth-child(#{$i}){
-                animation-delay: #{$i * .1}s;
-            }
-        }
-        &.active {
-            border-left-color: var(--primary-color);
-        }
-        &:hover {
-            border-left-color: var(--primary-color);
-            background-color: rgba(0,0,0,0.05);
-        }
-        svg {
-            width: 1.2em;
-            margin-right: .5em ;
-        }
-    }
-}
-
 
 .container {
     padding-inline: 15vw;
 }
+// NAVIGATION
+@import "partials/navbar";
+
  
 @media screen and (max-width: 768px) {
     .navbar {
@@ -175,5 +49,104 @@ a {
         .sidebar__btn {
             display: block;
         }
+    }
+}
+
+//LANDING PAGE
+
+.main {
+    padding-block: 3vw;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    .column {
+        width: 50%;
+    }
+    .title {
+        color: var(--text-color);
+        font-size: 3em;
+        margin-bottom: .25em;
+    }
+    .info {
+        color: var(--text-light);
+        font-size: 1em;
+        margin-bottom: 1.25em;
+        letter-spacing: 1px;
+        line-height: 1.3em;
+    }
+}
+
+.section.landing {
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.75vw;
+    }
+    .typography {
+        padding-right: 1em;
+    }
+    .food__image {
+        transform: scale(0);
+        border-radius: 5px;
+        overflow: hidden;
+        opacity: 0;
+        animation: getAnimationDuration(.5s) popOut forwards;
+        &:nth-child(2){
+            animation-delay: .1s;
+        }
+        &:nth-child(3){
+            animation-delay: .2s;
+        }
+        &:nth-child(6){
+            animation-delay: .3s;
+        }
+        &:nth-child(9){
+            animation-delay: .4s;
+        }
+        &:nth-child(8){
+            animation-delay: .5s;
+        }
+        &:nth-child(7){
+            animation-delay: .6s;
+        }
+        &:nth-child(4){
+            animation-delay: .7s;
+        }
+        &:nth-child(5){
+            animation-delay: .8s;
+        }
+    }
+}
+
+.btn {
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: white;
+    padding: .75em 1em;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px var(--shadow-color);
+    &:hover {
+        box-shadow: 0 1px 3px var(--shadow-color);
+    }
+}
+
+.food__image {
+    background-color: red;
+    height: 0;
+    width: 100%;
+    position: relative;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
     }
 }

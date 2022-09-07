@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Sidebar from './Sidebar';
 
-import { faHome, faList, faCog, faL } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faList, faCog, } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
     const [showSidebar, setShowSidebar] = useState(false);
