@@ -1,6 +1,9 @@
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import Skills from "./components/Skills";
+import Quote from "./components/Quote";
+import ChefProfile from "./components/ChefProfile";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -9,7 +12,10 @@ function App() {
       <div className="container main">
         <Landing />
         <Skills />
+        <Quote />
+        <ChefProfile />
       </div>
+        <Footer />
     </div>
   );
 }

@@ -1,0 +1,56 @@
+.section.chefs {
+    display: block;
+    .chef__profile--container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-gap: 1.5em;
+    }
+    .title {
+        margin-bottom: 0.75em;
+    }
+    .chef__card {
+       display: flex;
+       height: 120px;
+       background-color: var(--background-color);
+       border-radius: 5px;
+       overflow: hidden;
+       img {
+        height: 100%;
+        width: 120px;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px var(--shadow-color);
+       }
+       .chef__card--info {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 0.5em;
+        padding-left: 1em;
+       } 
+       .chef__name {
+        font-size: 1.35em;
+        font-weight: bold;
+        color: var(--text-color);
+       }
+       .chef__recipe-count, .chef__cuisine {
+        font-size: 1.1em;
+        color: var(--text-light);
+       }
+       .chef__icons {
+        font-size: 1.1em;
+        svg {
+            margin-right: 0.5em;
+            &:nth-child(1) {
+                color: #0063f7;
+            }
+            &:nth-child(2) {
+                color: #13b4ff;
+            }
+            &:nth-child(3) {
+                color: #ff0056;
+            }
+        }
+       }
+    }
+}
