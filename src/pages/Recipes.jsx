@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import SearchBar from '../components/SearchBar';
 
 const Recipes = () => {
   return (
-    <div>Recipes</div>
+    <div>
+      <SearchBar />
+      <div
+    </div>
   )
 }
 
