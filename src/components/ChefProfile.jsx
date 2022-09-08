@@ -45,7 +45,7 @@ const ChefProfile = () => {
   return (
     <div className='section chefs'>
         <h1 className="title">
-            This Weeks Top Chefs
+            Our Featured Chefs
         </h1>
         <div className="chef__profile--container">
             {/* <ChefCards />
