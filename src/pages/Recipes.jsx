@@ -5,7 +5,6 @@ const Recipes = () => {
   return (
     <div>
       <SearchBar />
-      <div
     </div>
   )
 }
