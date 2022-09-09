@@ -1,0 +1,32 @@
+.recipe__card--container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap: 1.5em;
+    .recipe__card--info {
+        padding: 15px ;
+    }
+    .recipe__card {
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px var(--shadow-color);
+    }
+    .recipe__card--title {
+        font-size: 1.25em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+        color: var(--text-color);
+        margin-top: 0.25em;
+    }
+    .recipe__card--description {
+        color: var(--text-light);
+        font-size: 0.9em;
+        letter-spacing: 0.5px;
+    }
+    .recipe__card--btn {
+        color: var(--primary-color);
+        font-size: 1em;
+        font-weight: bold;
+        margin-top: 0.75em;
+        display: inline-block;
+    }
+}

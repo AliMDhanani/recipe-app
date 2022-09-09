@@ -41,6 +41,9 @@ img {
     align-items: center;
     margin-bottom: 3vw;
     flex-wrap: wrap;
+    &.block {
+        display: block;
+    }
     .column {
         width: 50%;
     }
@@ -153,35 +156,51 @@ img {
 //SEARCH BAR
 @import "partials/_SearchBar";
 
-.recipe__card--container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    grid-gap: 1.5em;
-    .recipe__card--info {
-        padding: 15px ;
-    }
-    .recipe__card {
+//RECIPE CARD 
+@import "partials/RecipeCard";
+
+//SETTINGS PAGE
+.options__container {
+    box-shadow: 0 5px 10px var(--shadow-color);
+    padding: 1em;
+    border-radius: 5px;
+    border-left: 0.5em solid var(--primary-color);
+    background-color: var(--background-color);
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    .option {
+        height: 3.5em;
+        width: 3.5em;
+        box-shadow: 0 3px 6px var(--shadow-color);
         border-radius: 5px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px var(--shadow-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.light {
+            background-color: white;
+        }
+        &.dark {
+            background-color: rgb(29, 29,29);
+        }
+        .tick {
+            height: 2.5em;
+            width: 2.5em;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            svg {
+                height: 1.5em;
+                width: 1.5em;
+            }
+        }
     }
-    .recipe__card--title {
-        font-size: 1.25em;
-        font-weight: bold;
-        margin-bottom: 0.5em;
-        color: var(--text-color);
-        margin-top: 0.25em;
-    }
-    .recipe__card--description {
-        color: var(--text-light);
-        font-size: 0.9em;
-        letter-spacing: 0.5px;
-    }
-    .recipe__card--btn {
-        color: var(--primary-color);
-        font-size: 1em;
-        font-weight: bold;
-        margin-top: 0.75em;
-        display: inline-block;
+}
+.block {
+    h2 {
+        font-size: 1.75em;
     }
 }
